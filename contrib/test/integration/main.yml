@@ -6,6 +6,9 @@
   tags:
     - setup
   tasks:
+    - name: install dependencies 
+      include: install_deps.yml
+
     - name: set up the system
       include: system.yml
 
