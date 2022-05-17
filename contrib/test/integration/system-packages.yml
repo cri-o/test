@@ -6,29 +6,29 @@
   yum:
     state: present
     name:
-      - atomic-registries
+      #- atomic-registries
       - container-selinux
       - curl
-      - device-mapper-devel
+      #- device-mapper-devel
       - expect
       - findutils
       - gcc
       - git
       - glib2-devel
       - glibc-devel
-      - glibc-static
-      - gpgme-devel
+        #- glibc-static
+        #- gpgme-devel
       - hostname
       - iproute
       - iptables
       - krb5-workstation
-      - libassuan-devel
+        #- libassuan-devel
       - libffi-devel
       - libgpg-error-devel
       - libguestfs-tools
       - libseccomp-devel
-      - libselinux-python
-      - libsemanage-python
+        #- libselinux-python
+        #- libsemanage-python
       - libvirt-client
       - libvirt-python
       - libxml2-devel
@@ -37,18 +37,18 @@
       - mlocate
       - nfs-utils
       - nmap-ncat
-      - oci-register-machine
-      - oci-systemd-hook
-      - oci-umount
+        #- oci-register-machine
+        #- oci-systemd-hook
+        #- oci-umount
       - openssl
       - openssl-devel
       - pkgconfig
-      - python
-      - python2-crypto
-      - python-devel
+        #- python
+        #- python2-crypto
+        #- python-devel
       - python-rhsm-certificates
-      - python-virtualenv
-      - PyYAML
+        #- python-virtualenv
+        #- PyYAML
       - redhat-rpm-config
       - rpcbind
       - rsync
