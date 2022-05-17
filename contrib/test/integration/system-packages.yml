@@ -30,7 +30,7 @@
         #- libselinux-python
         #- libsemanage-python
       - libvirt-client
-      - libvirt-python
+        #- libvirt-python
       - libxml2-devel
       - libxslt-devel
       - make
