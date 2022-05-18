@@ -25,6 +25,12 @@
     path: "{{ ansible_user_dir }}/.profile"
     state: touch
 
+- name: set gopath 
+  set_fact:
+    ansible_env: "{{ ansible_env | default ({}) | combine ({ item.key : item.value }) }}"
+    with_items: 
+      - { 'GOPATH': '$HOME/go' }
+
 - name: Printing all the environment variables in Ansible
   debug:
     msg: "{{ ansible_env }}"
