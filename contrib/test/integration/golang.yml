@@ -26,7 +26,6 @@
     state: touch
 
 - name: asdf 
-  hosts: "{{ my_hosts }}"
   gather_facts: true
   tasks:
     - name: Printing all the environment<200b> variables in Ansible
