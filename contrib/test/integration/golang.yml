@@ -1,7 +1,7 @@
 ---
 - name: write /etc/environment
   copy:
-    path: "/etc/environment"
+    dest: "/etc/environment"
     content: | 
       GOPATH="/usr/local/go"
 
