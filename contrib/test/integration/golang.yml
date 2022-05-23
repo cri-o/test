@@ -39,14 +39,14 @@
     path: "{{ item }}"
     state: directory
   with_items:
-    - "{{ ansible_env.GOPATH }}/src/github.com/containernetworking"
-    - "{{ ansible_env.GOPATH }}/src/github.com/kubernetes-incubator"
-    - "{{ ansible_env.GOPATH }}/src/github.com/kubernetes-sigs"
-    - "{{ ansible_env.GOPATH }}/src/github.com/cri-o"
-    - "{{ ansible_env.GOPATH }}/src/github.com/k8s.io"
-    - "{{ ansible_env.GOPATH }}/src/github.com/bats-core"
-    - "{{ ansible_env.GOPATH }}/src/github.com/opencontainers"
-    - "{{ ansible_env.GOPATH }}/src/k8s.io/test-infra"
+    - "usr/local/go/src/github.com/containernetworking"
+    - "usr/local/go/src/github.com/kubernetes-incubator"
+    - "usr/local/go/src/github.com/kubernetes-sigs"
+    - "usr/local/go/src/github.com/cri-o"
+    - "usr/local/go/src/github.com/k8s.io"
+    - "usr/local/go/src/github.com/bats-core"
+    - "usr/local/go/src/github.com/opencontainers"
+    - "usr/local/go/src/k8s.io/test-infra"
 
 - name: install Go tools and dependencies
   shell: go get -u "github.com/{{ item }}"
