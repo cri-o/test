@@ -1,4 +1,9 @@
 ---
+- name: write /etc/environment
+  copy:
+    path: "/etc/environment"
+    content: | 
+      GOPATH="/usr/local/go"
 
 - name: ensure Golang dir is empty first
   file:
