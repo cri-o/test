@@ -1,9 +1,7 @@
 ---
-- name: write /etc/environment
-  copy:
-    dest: "/etc/environment"
-    content: | 
-      GOPATH="/usr/local/go"
+- name: "Ansible | Print a variable"
+  debug:
+    msg: "{{ ansible_env }}"
 
 - name: ensure Golang dir is empty first
   file:
