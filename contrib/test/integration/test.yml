@@ -2,7 +2,7 @@
 
 - name: Make testing output verbose so it can be converted to xunit
   lineinfile:
-    dest: "{{ ansible_env.GOPATH }}/src/k8s.io/kubernetes/hack/make-rules/test.sh"
+    dest: "/usr/local/go/src/k8s.io/kubernetes/hack/make-rules/test.sh"
     line: ' go test -v "${goflags[@]:+${goflags[@]}}" \  # Added by ansible from test.yml'
     regexp: ' go test \"\$'
     state: present
@@ -44,7 +44,7 @@
 
     - name: skip tests not working in kata
       lineinfile:
-        dest: "{{ ansible_env.GOPATH }}/src/github.com/cri-o/cri-o/test/ctr.bats"
+        dest: "/usr/local/go/src/github.com/cri-o/cri-o/test/ctr.bats"
         insertafter: "{{ item }}"
         line: "skip \"{{ item  | regex_replace('\"', \"'\") }} not working in kata\""
         state: present
@@ -61,7 +61,7 @@
     - name: run integration tests
       shell: "make localintegration >& {{ crio_integration_filepath }}"
       args:
-        chdir: "{{ ansible_env.GOPATH }}/src/github.com/cri-o/cri-o"
+        chdir: "/usr/local/go/src/github.com/cri-o/cri-o"
       environment: '{{ int_test_env }}'  # from vars.yml and main.yml
       async: '{{ int_test_timeout | default(60 * 30) }}'  # seconds
       poll: 30
@@ -69,7 +69,7 @@
     - name: run integration tests with userNS enabled + alternate results file
       shell: "make localintegration >& {{ crio_integration_userns_filepath }}"
       args:
-        chdir: "{{ ansible_env.GOPATH }}/src/github.com/cri-o/cri-o"
+        chdir: "/usr/local/go/src/github.com/cri-o/cri-o"
       environment: '{{ int_test_env | combine(userns_int_test_env) }} '
       async: '{{ int_test_timeout | default(60 * 30) }}'  # seconds
       poll: 30

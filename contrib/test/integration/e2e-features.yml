@@ -12,7 +12,7 @@
   set_fact:
     e2e_shell_cmd: >
         KUBE_CONTAINER_RUNTIME="remote" GINKGO_PARALLEL_NODES=6 GINKGO_PARALLEL=y
-            "{{ ansible_env.GOPATH }}"/bin/kubetest
+            "/usr/local/go"/bin/kubetest
             --provider=local
             --test
             --test_args="-host=https://{{ ansible_default_ipv4.address }}:6443
@@ -33,7 +33,7 @@
     - name: run e2e tests
       shell: "{{ e2e_shell_cmd | regex_replace('\\s+', ' ') }}"
       args:
-        chdir: "{{ ansible_env.GOPATH }}/src/k8s.io/kubernetes"
+        chdir: "/usr/local/go/src/k8s.io/kubernetes"
       async: '{{ 60 * 60 * 4 }}'  # seconds
       poll: 60
 

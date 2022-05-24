@@ -3,7 +3,7 @@
 - name: clone crun source repo
   git:
     repo: "https://github.com/containers/crun.git"
-    dest: "{{ ansible_env.GOPATH }}/src/github.com/containers/crun"
+    dest: "/usr/local/go/src/github.com/containers/crun"
     force: "{{ force_clone | default(False) | bool}}"
     version: "HEAD"
 
@@ -29,28 +29,28 @@
       libtool
 
 - name: Run autogen.sh
-  command: "{{ ansible_env.GOPATH }}/src/github.com/containers/crun/autogen.sh"
+  command: "/usr/local/go/src/github.com/containers/crun/autogen.sh"
   args:
-    chdir: "{{ ansible_env.GOPATH }}/src/github.com/containers/crun"
+    chdir: "/usr/local/go/src/github.com/containers/crun"
 
 - name: Run configure
-  command: "{{ ansible_env.GOPATH }}/src/github.com/containers/crun/configure"
+  command: "/usr/local/go/src/github.com/containers/crun/configure"
   args:
-    chdir: "{{ ansible_env.GOPATH }}/src/github.com/containers/crun"
+    chdir: "/usr/local/go/src/github.com/containers/crun"
 
 - name: run crun clean
   make:
     target: clean
-    chdir: "{{ ansible_env.GOPATH }}/src/github.com/containers/crun"
+    chdir: "/usr/local/go/src/github.com/containers/crun"
 
 - name: build crun
   make:
-    chdir: "{{ ansible_env.GOPATH }}/src/github.com/containers/crun"
+    chdir: "/usr/local/go/src/github.com/containers/crun"
 
 - name: install crun
   make:
     target: "install"
-    chdir: "{{ ansible_env.GOPATH }}/src/github.com/containers/crun"
+    chdir: "/usr/local/go/src/github.com/containers/crun"
 
 - name: remove old runc binary
   file:
