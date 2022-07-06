@@ -15,7 +15,6 @@
     state: started
     enabled: yes
     daemon_reload: yes
-  ignore_errors: yes
 
 - name: Check for journald logs
   command: systemctl status crio.service
