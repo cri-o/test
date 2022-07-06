@@ -30,6 +30,7 @@
       After=network-online.target
       Wants=network-online.target
       [Service]
+      EnvironmentFile=-/etc/environment
       WorkingDirectory={{ ansible_env.GOPATH }}/src/k8s.io/kubernetes
       ExecStart=/usr/local/bin/createcluster.sh
       User=root
@@ -92,5 +93,5 @@
 - name: copy kubectl (for e2e tests)
   copy:
     src: "{{ ansible_env.GOPATH }}/src/k8s.io/kubernetes/_output/bin/kubectl"
-    dest: /usr/bin/kubectl
+    dest: "/usr/bin/kubectl"
     mode: "preserve"
