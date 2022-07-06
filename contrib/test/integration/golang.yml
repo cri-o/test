@@ -53,10 +53,4 @@
   args:
     chdir: /
   with_items:
-    - onsi/ginkgo/v2/ginkgo
-
-- name: copy ginkgo (for e2e tests)
-  copy:
-    src: "{{ ansible_env.GOPATH }}/bin/ginkgo"
-    dest: /usr/bin/ginkgo
-    mode: "preserve"
+    - onsi/ginkgo/ginkgo
